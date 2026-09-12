@@ -3,6 +3,9 @@ Flask-CORS==4.0.0
 pinecone
 sentence-transformers
 groq==0.20.0
+# groq's SDK still passes `proxies` to httpx.Client(); httpx>=0.28 removed that
+# kwarg and crashes on import. Pin below that break until groq updates.
+httpx==0.27.2
 huggingface_hub
 dotenv
 PyMuPDF
