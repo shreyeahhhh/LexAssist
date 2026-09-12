@@ -54,11 +54,17 @@ from models.schemas import ServerMessage
 
 app = FastAPI(title="Virtual Courtroom API")
 
-# Load env vars from backend/.env, repo root/.env, or Server/.env
+# Load env vars from backend/.env, repo root/.env, or Server/.env.
+# In a container deploy, main.py is copied to a flattened path (e.g. /app/main.py)
+# that has no repo root above it, so parents[3] is unavailable there; real env vars
+# come from the platform's environment in that case, so this is safe to skip.
 load_dotenv()
-repo_root = Path(__file__).resolve().parents[3]
-load_dotenv(repo_root / ".env", override=False)
-load_dotenv(repo_root / "Server" / ".env", override=False)
+try:
+    repo_root = Path(__file__).resolve().parents[3]
+    load_dotenv(repo_root / ".env", override=False)
+    load_dotenv(repo_root / "Server" / ".env", override=False)
+except IndexError:
+    pass
 
 # CORS middleware
 app.add_middleware(
