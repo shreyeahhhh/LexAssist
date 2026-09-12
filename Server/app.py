@@ -693,7 +693,8 @@ def extract_text_from_upload(file_storage, ocr_lang: str = "eng") -> Tuple[str, 
 
             tessdata_arg = ""
             if TESSDATA_DIR:
-                tessdata_arg = f" --tessdata-dir {TESSDATA_DIR.replace('\\\\', '/')}"
+                tessdata_dir_posix = TESSDATA_DIR.replace('\\\\', '/')
+                tessdata_arg = f" --tessdata-dir {tessdata_dir_posix}"
             configs = [
                 f"--oem 1 --psm 6 --dpi 300{tessdata_arg}",
                 f"--oem 1 --psm 4 --dpi 300{tessdata_arg}",
