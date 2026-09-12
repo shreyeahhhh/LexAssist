@@ -20,6 +20,7 @@ export const Header = ({ user }) => {
   const handleLogout = async () => {
     const apiUrl = import.meta.env.VITE_API_URL;
     try {
+      window.dispatchEvent(new CustomEvent("lexassist:before-logout"));
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
     } catch (err) {
@@ -36,9 +37,9 @@ export const Header = ({ user }) => {
           <Link to="/" className="relative z-10">
             <div className="flex items-center">
               <div className="h-10 w-10 rounded-full bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center mr-2">
-                <span className="text-white font-bold text-lg">LP</span>
+                <span className="text-white font-bold text-lg">LA</span>
               </div>
-              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">LawPal</span>
+              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">LexAssist</span>
             </div>
           </Link>
 

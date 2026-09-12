@@ -1,5 +1,5 @@
 // App/project/src/api.js
-const BACKEND_URL = import.meta.env.VITE_API_URL || 'https://huggingface.co/spaces/ARYN26/LawPAL';
+const BACKEND_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 export const submitForm = async (formData) => {
   try {

@@ -6,6 +6,10 @@ groq==0.20.0
 huggingface_hub
 dotenv
 PyMuPDF
+pillow
+pytesseract
+python-docx
 tqdm
 supabase
 gunicorn
+gTTS

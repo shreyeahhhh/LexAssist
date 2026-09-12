@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "./supabase";
 import { FiFile } from "react-icons/fi"; // imported document icon
 import "./Resources.css";
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
 
 const Resources = () => {
   const [pdfs, setPdfs] = useState([]);

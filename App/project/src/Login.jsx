@@ -4,10 +4,9 @@ import { supabase } from './supabase';
 
 function Login() {
   const apiUrl = import.meta.env.VITE_API_URL;
-  const [authMode, setAuthMode] = useState('password'); // or 'otp'
+  const [authMode, setAuthMode] = useState('password'); // or 'magic-link'
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [otp, setOtp] = useState('');
   const [error, setError] = useState('');
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const navigate = useNavigate();
@@ -41,7 +40,7 @@ function Login() {
     }
   };
 
-  const handleOtpLogin = async (e) => {
+  const handleMagicLinkLogin = async (e) => {
     e.preventDefault();
     try {
       const { error } = await supabase.auth.signInWithOtp({
@@ -51,30 +50,7 @@ function Login() {
         },
       });
       if (error) throw error;
-      window.localStorage.setItem('emailForSignIn', email);
-      alert('OTP sent to your email!');
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  const handleOtpVerification = async (e) => {
-    e.preventDefault();
-    try {
-      const email = window.localStorage.getItem('emailForSignIn');
-      if (!email) {
-        setError('Please enter your email again.');
-        return;
-      }
-      const { error } = await supabase.auth.verifyOtp({
-        email,
-        token: otp,
-        type: 'email',
-      });
-      if (error) throw error;
-      window.localStorage.removeItem('emailForSignIn');
-      alert('Login successful!');
-      navigate('/');
+      alert('One-time sign-in link sent to your email!');
     } catch (err) {
       setError(err.message);
     }
@@ -129,14 +105,14 @@ function Login() {
               Password
             </button>
             <button
-              onClick={() => setAuthMode('otp')}
+              onClick={() => setAuthMode('magic-link')}
               className={`px-4 py-2 rounded-lg text-sm transition ${
-                authMode === 'otp' 
+                authMode === 'magic-link' 
                   ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' 
                   : 'text-gray-300 hover:text-white'
               }`}
             >
-              One-Time Code
+              One-Time Link
             </button>
           </div>
         </div>
@@ -193,7 +169,7 @@ function Login() {
             </button>
           </form>
         ) : (
-          <form onSubmit={otp ? handleOtpVerification : handleOtpLogin} className="space-y-4">
+          <form onSubmit={handleMagicLinkLogin} className="space-y-4">
             <div>
               <label className="block mb-2 text-sm">Email or ID</label>
               <div className="relative">
@@ -213,29 +189,11 @@ function Login() {
               </div>
             </div>
 
-            <div>
-              <label className="block mb-2 text-sm">One-Time Code</label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-gray-400">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.715-5.349L11 6.477V16h2a1 1 0 110 2H7a1 1 0 110-2h2V6.477L6.237 7.582l1.715 5.349a1 1 0 01-.285 1.05A3.989 3.989 0 015 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <input
-                  type="text"
-                  placeholder="123456"
-                  value={otp}
-                  onChange={(e) => setOtp(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 text-white border border-white/10 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500/30 transition"
-                />
-              </div>
-            </div>
-
             <button
               type="submit"
               className="w-full py-3 rounded-xl font-medium transition bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:opacity-90 transform hover:scale-[1.02] duration-200"
             >
-              {otp ? 'Verify Code' : 'Send Code'}
+              Send Link
             </button>
           </form>
         )}

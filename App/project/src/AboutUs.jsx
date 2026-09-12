@@ -6,12 +6,12 @@ const AboutUs = () => {
   // FAQ data (9 items)
   const faqs = [
     {
-      question: "What is LawPal?",
+      question: "What is LexAssist?",
       answer:
-        "LawPal is India's advanced AI-powered legal assistant, designed to make legal knowledge accessible to everyone, free of cost. With cutting-edge AI technology, LawPal helps individuals understand complex legal matters effortlessly, ensuring that legal guidance is just a conversation away. LawPal offers multilingual support, making legal assistance available in multiple Indian languages to bridge the gap between legal knowledge and the people who need it most. Whether you seek insights into property disputes, criminal law, consumer rights, or any other legal domain, LawPal is here to guide you. Conceptualized and developed independently, LawPal is committed to providing accurate, AI-driven legal insights, empowering individuals with the knowledge to make informed decisions. Start your journey with LawPal today—explore legal information in your preferred language and take control of your rights with confidence!",
+        "LexAssist is India's advanced AI-powered legal assistant, designed to make legal knowledge accessible to everyone, free of cost. With cutting-edge AI technology, LexAssist helps individuals understand complex legal matters effortlessly, ensuring that legal guidance is just a conversation away. LexAssist offers multilingual support, making legal assistance available in multiple Indian languages to bridge the gap between legal knowledge and the people who need it most. Whether you seek insights into property disputes, criminal law, consumer rights, or any other legal domain, LexAssist is here to guide you. Conceptualized and developed independently, LexAssist is committed to providing accurate, AI-driven legal insights, empowering individuals with the knowledge to make informed decisions. Start your journey with LexAssist today—explore legal information in your preferred language and take control of your rights with confidence!",
     },
     {
-      question: "Do I need an account to use LawPal?",
+      question: "Do I need an account to use LexAssist?",
       answer:
         "While basic information is available without an account, signing up unlocks personalized features and faster service.",
     },
@@ -21,7 +21,7 @@ const AboutUs = () => {
         "We prioritize security with advanced encryption and strict access controls to ensure your personal information remains safe.",
     },
     {
-      question: "Which languages does LawPal support?",
+      question: "Which languages does LexAssist support?",
       answer:
         "We offer services in multiple languages especially in 22 scheduled languages of India to cater to a diverse community, ensuring everyone can benefit.",
     },
@@ -31,12 +31,12 @@ const AboutUs = () => {
         "Each chatbot is specialized for a particular government domain—be it taxes, pensions, or documents—so they provide accurate, context-driven responses.",
     },
     {
-      question: "Is LawPal available 24/7?",
+      question: "Is LexAssist available 24/7?",
       answer:
         "Yes! Our platform is available round-the-clock, ensuring you can get assistance anytime without waiting in queues.",
     },
     {
-      question: "What makes LawPal's AI unique?",
+      question: "What makes LexAssist's AI unique?",
       answer:
         "Our advanced AI integration uses natural language processing to understand complex queries and deliver precise, actionable answers instantly.",
     },
@@ -48,7 +48,7 @@ const AboutUs = () => {
     {
       question: "What if I have multiple queries?",
       answer:
-        "LawPal is designed to handle multiple queries seamlessly, and you can switch between various specialized chatbots as needed.",
+        "LexAssist is designed to handle multiple queries seamlessly, and you can switch between various specialized chatbots as needed.",
     },
   ];
 
@@ -95,7 +95,7 @@ const AboutUs = () => {
           <br></br>
           <br></br>
           <h1 className="text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
-            About LawPal
+            About LexAssist
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Democratizing legal knowledge through AI innovation
@@ -115,7 +115,7 @@ const AboutUs = () => {
           <div className="text-center mb-24">
             <h2 className="text-4xl font-bold mb-6">Transforming Legal Assistance</h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              LawPal leverages cutting-edge AI to make legal services simple, accessible, and efficient for everyone in India.
+              LexAssist leverages cutting-edge AI to make legal services simple, accessible, and efficient for everyone in India.
             </p>
           </div>
         </Fade>
@@ -200,13 +200,13 @@ const AboutUs = () => {
           </Fade>
         </div>
 
-        {/* Why LawPal is Better */}
+        {/* Why LexAssist is Better */}
         <Fade triggerOnce>
           <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8 mb-24 relative overflow-hidden">
             <div className="absolute -top-20 -right-20 h-40 w-40 bg-purple-600/20 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-20 -left-20 h-40 w-40 bg-blue-600/20 rounded-full blur-3xl"></div>
             
-            <h2 className="text-3xl font-semibold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500 relative z-10">Why LawPal is Better</h2>
+            <h2 className="text-3xl font-semibold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500 relative z-10">Why LexAssist is Better</h2>
             <p className="text-gray-300 mb-8 max-w-3xl relative z-10">
               We stand out by focusing exclusively on specialized legal services, backed by robust AI and a user-friendly design that makes complex legal information accessible to everyone.
             </p>
@@ -305,7 +305,7 @@ const AboutUs = () => {
             
             <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10">Ready to Transform Your Legal Experience?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto relative z-10">
-              Join thousands of Indians who are simplifying their legal journey with LawPal's AI-powered assistance.
+              Join thousands of Indians who are simplifying their legal journey with LexAssist's AI-powered assistance.
             </p>
             
           </div>

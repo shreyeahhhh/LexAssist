@@ -33,6 +33,51 @@ const servicesData = [
       "Regulatory Compliance"
     ]
   },
+  {
+    title: "Self Lawyer Guide",
+    description:
+      "Get step-by-step guidance to represent yourself in court. Learn how to present your case, prepare documents, structure arguments, and navigate court procedures effectively.",
+    icon: "⚔️",
+    color: "from-amber-600 to-orange-600",
+    features: [
+      "Court Presentation Skills",
+      "Document Preparation",
+      "Legal Argumentation",
+      "Court Procedures",
+      "Case Structuring",
+      "Self-Representation Tips"
+    ]
+  },
+  {
+    title: "Virtual Courtroom Experience",
+    description:
+      "Experience a realistic courtroom simulation. Act as your own lawyer while AI plays the roles of Judge and Defense Counsel. Practice presenting your case, handle opposition arguments, and get real-time feedback on your arguments.",
+    icon: "⚖️",
+    color: "from-green-600 to-emerald-600",
+    features: [
+      "Interactive Trial Simulation",
+      "AI Judge & Defense Counsel",
+      "Real-time Feedback",
+      "Opposition Arguments",
+      "Case Outcome Predictions",
+      "Courtroom Practice"
+    ]
+  },
+  {
+    title: "Document Analyser",
+    description:
+      "Upload or paste a court document to get a simple explanation in your preferred language and guidance on any forms you need to fill.",
+    icon: "📄",
+    color: "from-indigo-600 to-purple-600",
+    features: [
+      "Plain-Language Summary",
+      "Form Detection",
+      "Field-by-Field Guidance",
+      "Deadline Highlights",
+      "Next Steps Checklist",
+      "Multi-Language Support"
+    ]
+  },
 ];
 
 const ServicesPage = () => {
@@ -53,8 +98,12 @@ const ServicesPage = () => {
   }, []);
 
   const handleAccessService = (service) => {
-    // Navigate to the service chat page with the service title
-    navigate(`/service-chat/${encodeURIComponent(service.title)}`);
+    if (service.title === "Virtual Courtroom Experience") {
+      navigate("/virtual-courtroom");
+    } else {
+      // Navigate to the service chat page with the service title
+      navigate(`/service-chat/${encodeURIComponent(service.title)}`);
+    }
   };
 
   return (
@@ -103,7 +152,7 @@ const ServicesPage = () => {
         
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {servicesData.map((service, index) => (
             <Fade key={index} triggerOnce direction={index % 2 === 0 ? "left" : "right"} delay={index * 200}>
               <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-500 group">
@@ -187,7 +236,7 @@ const ServicesPage = () => {
           <div className="mt-24 text-center">
             <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Join thousands of Indians who are simplifying their legal journey with LawPal's AI-powered assistance.
+              Join thousands of Indians who are simplifying their legal journey with LexAssist's AI-powered assistance.
             </p>
             <button 
               onClick={() => navigate('/service-chat/consultation')}

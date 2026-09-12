@@ -1,3 +1,9 @@
+# Ignore legacy standalone virtual_court demo assets
+virtual_court/virtual_court/*.html
+virtual_court/virtual_court/*.js
+virtual_court/virtual_court/*.css
+virtual_court/virtual_court/*.md
+virtual_court/virtual_court/start-server.bat
 node_modules
 node_modules/
 .env
@@ -5,3 +11,7 @@ supabase.js
 venv/
 pdfs
 .venv
+__pycache__/
+*.pyc
+.hf_cache/
+.hf_cache2/

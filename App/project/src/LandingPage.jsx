@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiFileText, FiBriefcase, FiHome, FiShield, FiBook, FiMail, FiPhone } from 'react-icons/fi';
+import { FiFileText, FiBriefcase, FiHome, FiShield, FiBook, FiMail, FiPhone, FiUser } from 'react-icons/fi';
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -110,6 +110,27 @@ export const Services = () => (
             title="Business, Consumer, and Criminal Legal Assistance"
             description="Assistance with starting a business, intellectual property, consumer complaints, criminal cases, civil disputes, and more."
             icon={FiBriefcase}
+          />
+        </Link>
+        <Link to="/service-chat/Self%20Lawyer%20Guide">
+          <ServiceCard
+            title="Self Lawyer Guide"
+            description="Get step-by-step guidance to represent yourself in court. Learn how to present your case, prepare documents, structure arguments, and navigate court procedures effectively."
+            icon={FiUser}
+          />
+        </Link>
+        <Link to="/virtual-courtroom">
+          <ServiceCard
+            title="Virtual Courtroom Experience"
+            description="Experience a realistic courtroom simulation. Act as your own lawyer while AI plays the roles of Judge and Defense Counsel. Practice presenting your case and get real-time feedback."
+            icon={FiBriefcase}
+          />
+        </Link>
+        <Link to="/service-chat/Document%20Analyser">
+          <ServiceCard
+            title="Document Analyser"
+            description="Explain court documents in simple language and get help filling required forms."
+            icon={FiFileText}
           />
         </Link>
       </div>
@@ -282,23 +303,23 @@ export const Footer = () => (
           <li className="flex items-center hover:text-white transition">
   <FiMail size={18} className="text-white mr-2" />
   <a
-    href="mailto:support@lawpal.gov.in"
+    href="mailto:support@lexassist.in"
     className="hover:underline"
   >
-    support@lawpal.gov.in
+    support@lexassist.in
   </a>
 </li>
             <li className="flex items-center hover:text-white transition">
               <FiPhone size={18} className="text-white mr-2" />
-              <span>1800-LAW-PAL</span>
+              <span>1800-LEX-ASSIST</span>
             </li>
           </ul>
         </div>
       </div>
       <div className="border-t border-white/30 mt-8 pt-8 text-center text-gray-200">
-        <p>© 2025 LawPal. All rights reserved.</p>
+        <p>© 2025 LexAssist. All rights reserved.</p>
         <p className="text-sm max-w-2xl mx-auto mt-2">
-          LawPal is an AI-driven platform providing general legal information. Not a substitute for professional legal consultation.
+          LexAssist is an AI-driven platform providing general legal information. Not a substitute for professional legal consultation.
         </p>
       </div>
     </div>

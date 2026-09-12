@@ -102,7 +102,7 @@ const ContactUs = () => {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full p-3 bg-white/5 rounded-lg border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent backdrop-blur-sm appearance-none"
+                className="lexassist-select w-full p-3 bg-white/5 rounded-lg border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent backdrop-blur-sm appearance-none"
                 style={{ color: formData.subject ? 'white' : '#9ca3af' }}
                 required
               >
@@ -162,7 +162,7 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm">Email</p>
-                  <p className="text-white">support@lawpal.gov.in</p>
+                  <p className="text-white">support@lexassist.in</p>
                 </div>
               </div>
               
@@ -172,7 +172,7 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm">Phone</p>
-                  <p className="text-white">1800-LAW-PAL</p>
+                  <p className="text-white">1800-LEX-ASSIST</p>
                 </div>
               </div>
               
@@ -182,7 +182,7 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm">Address</p>
-                  <p className="text-white">VCET, Vasai (W) - 401202, Maharashtra, India</p>
+                  <p className="text-white">VJCET, Mvtpza (W) - 685588, Kerala, India</p>
                 </div>
               </div>
             </div>
@@ -215,7 +215,7 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Technical Support</p>
-                  <p className="text-white">1800-LAW-PAL</p>
+                  <p className="text-white">1800-LEX-ASSIST</p>
                 </div>
               </div>
             </div>
