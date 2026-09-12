@@ -1,0 +1,47 @@
+services:
+  - type: web
+    name: lexassist-api
+    runtime: docker
+    dockerfilePath: ./Server/Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: PINECONE_API
+        sync: false
+      - key: GROQ_API
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+
+  - type: web
+    name: lexassist-courtroom
+    runtime: docker
+    dockerfilePath: ./virtual_court/virtual_court/backend/Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+
+  - type: web
+    name: lexassist-frontend
+    runtime: static
+    buildCommand: cd App/project && npm ci && npm run build
+    staticPublishPath: App/project/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        value: https://lexassist-api.onrender.com
+      - key: VITE_COURT_WS_URL
+        value: https://lexassist-courtroom.onrender.com
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false

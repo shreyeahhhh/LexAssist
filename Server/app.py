@@ -106,7 +106,7 @@ app = Flask(__name__)
 CORS(app, resources={
     r"/.*": {
         "origins": [
-            "https://law-pal.vercel.app",
+            "https://lexassist-frontend.onrender.com",
             "http://localhost:5173",
             "http://localhost:5174",
             "http://localhost:5175",
