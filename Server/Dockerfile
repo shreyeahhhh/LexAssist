@@ -11,7 +11,11 @@ COPY Server/requirements.txt .
 # sentence-transformers pulls in torch; the default PyPI wheel bundles CUDA
 # support (~555MB) that this CPU-only container never uses. Install the
 # CPU-only build first (~196MB) so it satisfies that dependency instead.
-RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu \
+# --extra-index-url (not --index-url) keeps PyPI available too: PyTorch's own
+# index doesn't carry every transitive build dependency (e.g. flit_core),
+# and pinning the exact +cpu version stops pip from resolving torch from
+# regular PyPI instead.
+RUN pip install --no-cache-dir "torch==2.14.0+cpu" --extra-index-url https://download.pytorch.org/whl/cpu \
     && pip install --no-cache-dir -r requirements.txt
 
 COPY Server/ .
