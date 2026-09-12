@@ -56,7 +56,7 @@ export const Hero = () => {
           <p className="text-gray-300 mt-4 max-w-xl">
             AI-powered legal assistant that provides instant, accessible insights on Indian laws.
             Covering civil, criminal, family, and property law, it simplifies complex legal concepts
-            for easy understanding. With a freemium model and continuous AI improvements, LawPal
+            for easy understanding. With a freemium model and continuous AI improvements, LexAssist
             bridges the gap between citizens and legal information, empowering users to make informed
             decisions.
           </p>
